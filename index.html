@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="style.css" />
+
+        <title>Stack That Image</title>
+    </head>
+    <body>
+        <div id="main_container">
+            <div id="content_container">
+                <div id="input_container">
+                    <!-- Inputs -->
+                    <form id="select_form">
+                        <div id="inputs_container">
+                            <!-- Image selection -->
+                            <div>
+                                <label for="select_imgs">Select images:</label><br />
+                                <input id="select_imgs"
+                                       type="file"
+                                       accept="image/*"
+                                       multiple />
+                            </div>
+
+                            <!-- Orientation selection -->
+                            <div>
+                                Orientation:<br />
+                                <input type="radio" id="vertical" name="orientation" value="CSS" checked>
+                                <label for="vertical">Vertical</label><br />
+                                <input type="radio" id="horizontal" name="orientation" value="HTML">
+                                <label for="horizontal">Horizontal</label><br />
+                            </div>
+
+                            <!-- Resize mode selection -->
+                            <div>
+                                Sizing:<br />
+                                <input type="radio" id="largest" name="sizing" value="HTML" checked>
+                                <label for="largest">Largest</label><br />
+                                <input type="radio" id="smallest" name="sizing" value="CSS">
+                                <label for="smallest">Smallest</label><br />
+                            </div>
+                        </div>
+
+                        <div id="setup_container">
+                            <!-- Error container -->
+                            <div id="error_div"></div>
+
+                            <!-- Selected image list -->
+                            <div id="image_list"></div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <input id="submit_btn"
+                               style="visibility: hidden;"
+                               type="submit"
+                               value="Create" />
+                    </form>
+                </div>
+
+                <!-- Output container -->
+                <div id="output_div"></div>
+            </div>
+
+            <div id="footer_container">
+                &copy; 2023
+                <a href="https://cjburkey.com"
+                   target="_blank"
+                   title="CJ Burkey's Homepage">
+                        CJ Burkey
+                </a>
+            </div>
+        </div>
+
+        <!-- Mein script :] -->
+        <script src="stack-that-image.js"></script>
+    </body>
+</html>

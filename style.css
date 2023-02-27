@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+/* Zero out padding & margin and set font */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Expand body to window size*/
+html, body, #main_container {
+    height: 100%;
+}
+
+/* -- CONTAINERS -- */
+
+/* Main flex container */
+#main_container {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#content_container {
+    /* Flex Container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* As an element */
+    flex: 1 0 0px;
+}
+
+#input_container {
+    padding: 10px;
+}
+
+#setup_container, #inputs_container > * {
+    margin-bottom: 10px;
+}
+
+#submit_btn {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 0px;
+}
+
+/* -- FOOTER -- */
+
+#footer_container {
+    font-size: 1.0rem;
+    flex-basis: 4rem;
+    line-height: 4rem;
+    background-color: #eeeeee;
+    color: #777777;
+    text-align: center;
+}
+
+#footer_container a {
+    color: #555555;
+}

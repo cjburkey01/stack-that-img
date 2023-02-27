@@ -12,6 +12,20 @@ html, body, #main_container {
     height: 100%;
 }
 
+/* Background */
+body {
+    background-color: #2E2E2E;
+}
+
+/* Nice links */
+a {
+    text-decoration: none;
+    transition: all 0.2s;
+}
+a:hover {
+    color: #4444ff !important;
+}
+
 /* -- CONTAINERS -- */
 
 /* Main flex container */
@@ -32,7 +46,8 @@ html, body, #main_container {
 }
 
 #input_container {
-    padding: 10px;
+    padding: 35px;
+    background-color: #9B9C9D;
 }
 
 #setup_container, #inputs_container > * {
@@ -56,11 +71,11 @@ html, body, #main_container {
     font-size: 1.0rem;
     flex-basis: 4rem;
     line-height: 4rem;
-    background-color: #eeeeee;
-    color: #777777;
+    background-color: #9B9C9D;
+    color: #bbbbbb;
     text-align: center;
 }
 
 #footer_container a {
-    color: #555555;
+    color: #111111;
 }

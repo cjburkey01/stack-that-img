@@ -12,7 +12,6 @@ let canvas;
 const from_id = (id) => document.getElementById(id);
 
 window.onload = () => {
-
     // Get elements
     select_form = from_id('select_form');
     select_imgs = from_id('select_imgs');
@@ -48,7 +47,7 @@ function reset() {
     // Empty the arrays & reset
     imgs_loaded = false;
     selected_files.length = 0;
-    submit_btn.style.visibility = 'hidden';
+    submit_btn.style.display = 'none';
     // Empty these out
     image_list.textContent = '';
     error_div.textContent = '';
@@ -87,7 +86,7 @@ function on_add_imgs(e) {
             // Write the error message for this file
             let error_elem = document.createElement('p');
             error_elem.textContent = `Failed to load ${file.name}!`;
-            error_elem.style.color = '#ff5555';
+            error_elem.style.color = '#992222';
             error_div.appendChild(error_elem);
 
             // Decrement the number of images we'll have to allow the submit
@@ -134,7 +133,7 @@ function on_imgs_ready() {
     console.log('All images ready');
 
     imgs_loaded = true;
-    submit_btn.style.visibility = 'visible';
+    submit_btn.style.display = 'block';
 }
 
 // Called when the user presses the submit button
@@ -148,6 +147,9 @@ function on_submit(e) {
     create_canvas();
     downloadCanvasImg('joined-img.png');
     canvas.style.display = 'none';
+
+    // Reset our stuff
+    // TODO: reset();
 }
 
 function create_canvas() {

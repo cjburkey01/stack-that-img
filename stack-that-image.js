@@ -1,7 +1,7 @@
 let select_form, select_imgs;
 let orient_vert, size_large;
 let image_list, submit_btn;
-let error_div, output_div;
+let error_div;
 
 let imgs_loaded = false;
 let selected_files = [];
@@ -20,7 +20,6 @@ window.onload = () => {
     image_list = from_id('image_list');
     submit_btn = from_id('submit_btn');
     error_div = from_id('error_div');
-    output_div = from_id('output_div');
 
     // Sanity check
     if (!select_form
@@ -29,8 +28,7 @@ window.onload = () => {
             || !size_large
             || !image_list
             || !submit_btn
-            || !error_div
-            || !output_div) {
+            || !error_div) {
         alert('An error occurred while loading the page! Couldn\'t find the elements by ID??');
         return;
     }
@@ -51,7 +49,6 @@ function reset() {
     // Empty these out
     image_list.textContent = '';
     error_div.textContent = '';
-    output_div.textContent = '';
     canvas = null;
 }
 
@@ -145,8 +142,17 @@ function on_submit(e) {
 
     // Create canvas
     create_canvas();
-    downloadCanvasImg('joined-img.png');
+    let uri = downloadCanvasImg('joined-img.png');
     canvas.style.display = 'none';
+    
+    // Append the image to the body to allow mobile users to save-as them
+    let test_img = document.createElement('img');
+    test_img.src = uri;
+    test_img.alt = 'Joined image';
+    select_form.parentNode.appendChild(test_img);
+    
+    // Clear the input files
+    select_imgs.value = select_imgs.defaultValue;
 
     // Reset our stuff
     // TODO: reset();
@@ -214,7 +220,7 @@ function create_canvas() {
     canvas.ariaHidden = 'true';
     canvas.width = canvas_size[0];
     canvas.height = canvas_size[1];
-    output_div.appendChild(canvas);
+    document.body.appendChild(canvas);
 
     // Draw the images to the canvas
     const ctx = canvas.getContext('2d');
@@ -242,4 +248,6 @@ function downloadCanvasImg(file_name) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    return uri;
 }
